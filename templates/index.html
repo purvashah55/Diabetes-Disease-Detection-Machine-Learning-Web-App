@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Detection</title>
+</head>
+<body>
+
+    <h1 id="head"><center>DIABETES DISEASE DETECTION</center></h1>
+    <center><img src="{{url_for('static',filename='images/py.jpg')}}" alt="Cannot load image" width="50%" class =box1  ></center>
+    <br><br>
+    <p>Welcome to our Diabetes Detection Portal !! Diabetes is a chronic disease with the potential to cause a worldwide health care crisis.Our interactive portal helps in early detection of diabetes disese. Helping hands !! Please enter the details given below and note down some importnat points to get correct results. </p>
+    <h4 id="note">NOTE:</h4>
+    <p>Body Mass Index (BMI) is a measure of body fat based on height and weight.Body Mass Index is a simple calculation using a person’s height and weight. The formula is BMI = kg/m<sup>2</sup> where kg is a person’s weight in kilograms and m<sup>2</sup> is their height in metres squared.
+    A BMI of 25.0 or more is overweight, while the healthy range is 18.5 to 24.9. BMI applies to most adults 18-65 years.</p>
+    <br><br>
+    <center>
+    <form action="/predict" method="post">
+        <label>Enter Pregnancies:</label>
+        <input type="text" name="Pregnancies" required><br><br>
+
+
+        <label>Enter Glucose:</label>
+        <input type="text" name="Glucose" required><br><br>
+
+        <label>Enter Blood Pressure</label>
+        <input type="text" name="Bloodpressure"  required><br><br>
+
+        <label >Enter Skin Thickness:</label>
+        <input type="text" name="SkinThickness"  required><br><br>
+
+        <label>Enter Insulin:</label>
+        <input type="text" name="Insulin"  required><br><br>
+        <label>Enter BMI:</label>
+        <input type="text" name="BMI" required><br><br>
+
+        <label>Enter Diabetes Pedigree Function:</label>
+        <input type="text" name="DiabetesPedigreeFunction" required><br><br>
+
+        <label>Enter Age:</label>
+        <input type="text" name="Age"  required>
+       <br><br>
+       <center ><input type="submit" value="Submit" id="btn"></center>
+        <style>
+           #note
+           {
+              color: red
+           }
+           #btn{
+                background-color: #90EE90;
+                text-color:black;
+                height:30px;
+                width:200px;
+           }
+	   #head{
+		margin-top:2%;
+	}
+        </style>
+
+</form>
+    </center>
+
+{% if msg=="Success" %}
+<hr/>
+    <center><h1>Your Result:</h1><strong><i style="color:red; font-size:25px">Positive!! You have diabetes</i></strong></center>
+    <br><hr/><br><br>
+{% endif %}
+{% if msg=="Unsuccess"  %}
+<hr/>
+   <center><h1>Your Result:</h1><strong><i style="color:green; font-size:25px">Negative!! You do not have diabetes</i></strong></center>
+ <br><hr/>
+    <br><br>
+{% endif %}
+
+</body>
+</html>
